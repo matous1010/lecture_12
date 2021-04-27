@@ -30,11 +30,13 @@ def read_rows(file_name, row_number):
 
     """
     with open(file_name,"r", encoding="utf-8") as file:
-        soubor = csv.reader(file)
+        soubor = csv.reader(file, delimiter="\t")
 
-        for idx, line in enumerate(soubor):
-            if idx == row_number:
-                row
+
+       for line in soubor:
+           row = [int(number) for number in line]
+
+    return row
 
 
 def selection_sort(number_array, direction="ascending"):
